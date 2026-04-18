@@ -1,16 +1,18 @@
 import numpy as np
 
+
 class EDoFBenchmark:
     """
-    Benchmarks the memory and runtime of the Effective Degrees of Freedom 
+    Benchmarks the memory and runtime of the Effective Degrees of Freedom
     calculation, specifically targeting the O(N^3) bottleneck in overparameterized models.
     """
-    timeout = 120 
+
+    timeout = 120
 
     def setup(self):
         # Generate an overparameterized U1 matrix (p >> n)
         self.n_samples = 500
-        self.n_features = 10000 
+        self.n_features = 10000
         self.U1 = np.random.rand(self.n_features, self.n_samples)
 
     def time_legacy_edof(self):
